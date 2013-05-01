@@ -68,4 +68,11 @@ home.html
 
 - now we can see the template cache at work, no more XHR's after the first two
 
+5. Let's add some dynamic behaviour, and wire up the login form so it will redirect to the home page once the user submits the form.
 
+- first, we'll set angular up so it handles the form submit for us using the ng-submit attribute
+- this attribute defines an expression, and the spot angular looks for that expression is on the scope that is passed in to the controller
+
+- we'll write the logic for our controller to handle a basic login scheme, and if the username and password are correct redirect the user to our home page using angulars $location service
+
+- however, we also need to figure out how to get the HTML form elements to pass the username and password to the $scope so our login function knows about them; in jQuery you might handle this manually be using $("input").val(), but in angular we try to avoid doing any manual DOM querying and instead rely on directives, like ng-model.

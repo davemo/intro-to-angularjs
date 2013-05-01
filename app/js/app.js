@@ -16,8 +16,16 @@ app.config(function($routeProvider) {
 
 });
 
-app.controller("LoginController", function($scope) {
+app.controller("LoginController", function($scope, $location) {
+  $scope.credentials = { username: "", password: "" };
 
+  $scope.login = function() {
+    if ($scope.credentials.username !== "ralph" || $scope.credentials.password !== "wiggum") {
+      alert("Username must be 'ralph', password must be 'wiggum'");
+    } else {
+      $location.path('/home');
+    }
+  }
 });
 
 app.controller("HomeController", function($scope) {
