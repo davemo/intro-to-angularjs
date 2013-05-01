@@ -61,3 +61,11 @@ app/js/app.js
 angular.module("app").controller("LoginController", function($scope) {
 
 });
+
+4. Right, so now we have a way to load templates and know how to load routes, so let's add a second route which has our homepage after login happens.
+
+home.html
+
+- now we can see the template cache at work, no more XHR's after the first two
+
+
