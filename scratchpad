@@ -25,3 +25,39 @@ html ng-app="app"
 
 - this is a built in "directive" that tells angular to "bootstrap" this HTML element so that it knows about our app module
 - the wiring happens automatically
+
+3. Routing / "Pages", How do we handle transitions?
+
+app/js/app.js
+
+.config(['$routeProvider', function($routeProvider) {
+
+  $routeProvider.when('/login', {
+    templateUrl: 'login.html',
+    controller: 'LoginController'
+  });
+
+  $routeProvider.otherwise({ redirectTo: '/login' });
+
+}]);
+
+- dependency injection, more on that later
+- default route
+- a controller to handle the "context" for that "page"
+- where does it get injected?
+
+index.html
+
+<div id="view" ng-view></div>
+
+- ng-view is an angular directive that tells angular, "this is where you should inject the templates that come from this scopes routeProvider when a route is matched"
+
+- the default behaviour is that angular will fetch the template provided at templateUrl, and cache it internally so it doesn't have to fetch it again
+
+- we need a controller, so things don't blow up
+
+app/js/app.js
+
+angular.module("app").controller("LoginController", function($scope) {
+
+});
