@@ -76,3 +76,34 @@ home.html
 - we'll write the logic for our controller to handle a basic login scheme, and if the username and password are correct redirect the user to our home page using angulars $location service
 
 - however, we also need to figure out how to get the HTML form elements to pass the username and password to the $scope so our login function knows about them; in jQuery you might handle this manually be using $("input").val(), but in angular we try to avoid doing any manual DOM querying and instead rely on directives, like ng-model.
+
+6. Now that our login is working pretty well, we should add some love to the Homepage, cause it's kind of boring right now. So, we will make a custom directive to show a special message when the user hovers their mouse over each of the images _and_ set an initial value for a title and message when the page renders, remember we have 2 way binding!
+
+{{ title }}
+{{ message }}
+shows-message-when-hovered message="Im the first house."
+shows-message-when-hovered message="Im the second house."
+
+app.controller("HomeController", function($scope) {
+  $scope.title = "Awesome Home";
+  $scope.message = "Mouse Over these images to see a directive at work!";
+});
+
+app.directive("showsMessageWhenHovered", function() {
+  return {
+    restrict: "A", // A = Attribute, C = CSS Class, E = HTML Element, M = HTML Comment
+    link: function(scope, element, attributes) {
+      var originalMessage = scope.message;
+      element.bind("mouseenter", function() {
+        scope.message = attributes.message;
+        scope.$apply();
+      });
+      element.bind("mouseleave", function() {
+        scope.message = originalMessage;
+        scope.$apply();
+      });
+    }
+  };
+});
+
+
