@@ -1,0 +1,27 @@
+AngularJS Intro:
+
+- extension to html
+- what googles vision for "web components" are
+  - isolated pieces of html, css, js working to create a rich experience
+- can do what other client-side frameworks like backbone/ember can, but offers a lot more
+- "data-binding" baked in
+- write less, do more
+
+1. Module system
+
+app/js/app.js
+
+angular.module("app", [])
+
+- defines a spot to stick the stuff that belogns in this "application"
+- could be scoped smaller
+- the [] are intended to list any dependencies that this module might need, more later
+
+2. How do we make our app aware of the app and "wire it up" ?
+
+index.html
+
+html ng-app="app"
+
+- this is a built in "directive" that tells angular to "bootstrap" this HTML element so that it knows about our app module
+- the wiring happens automatically
