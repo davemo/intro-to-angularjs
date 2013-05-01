@@ -106,4 +106,9 @@ app.directive("showsMessageWhenHovered", function() {
   };
 });
 
+7. Services - it seems silly that our HomePage controller has to know about how to handle logging in, and it kind of flies against the "angular way" of having pieces of code be responsible for only 1 thing (Single Responsibility Principle). So let's extract our authentication logic into a service called the AuthenticationService.
+
+- we also added a logout function, and wired it up in the home.html to complete the cycle in our simple app.
+- many more things we could explore, like $http
+
 
