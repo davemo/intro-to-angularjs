@@ -16,6 +16,14 @@ app.config(function($routeProvider) {
 
 });
 
+app.factory("ImageService", function() {
+  var images = [
+    {filename: "demo1.jpg", message: "I'm the first house."},
+    {filename: "demo2.jpg", message: "I'm the second house."}
+  ];
+  return {images:images};
+});
+
 app.factory("AuthenticationService", function($location) {
   return {
     login: function(credentials) {
@@ -39,26 +47,35 @@ app.controller("LoginController", function($scope, $location, AuthenticationServ
   }
 });
 
-app.controller("HomeController", function($scope, AuthenticationService) {
+app.controller("HomeController", function($scope, AuthenticationService, ImageService) {
   $scope.title = "Awesome Home";
-  $scope.message = "Mouse Over these images to see a directive at work!";
+  $scope.hoverMessage = "Mouse Over these images to see a directive at work!";
+  $scope.images = ImageService.images;
 
   $scope.logout = function() {
     AuthenticationService.logout();
   };
 });
 
+app.directive("imageGrid", function() {
+  return {
+    restrict: "E",
+    templateUrl: "image-grid.html"
+  }
+});
+
 app.directive("showsMessageWhenHovered", function() {
   return {
-    restrict: "A", // A = Attribute, C = CSS Class, E = HTML Element, M = HTML Comment
+    restrict: "A",
     link: function(scope, element, attributes) {
-      var originalMessage = scope.message;
+      var originalMessage = scope.hoverMessage;
       element.bind("mouseenter", function() {
-        scope.message = attributes.message;
+        debugger;
+        scope.hoverMessage = attributes.message;
         scope.$apply();
       });
       element.bind("mouseleave", function() {
-        scope.message = originalMessage;
+        scope.hoverMessage = originalMessage;
         scope.$apply();
       });
     }
