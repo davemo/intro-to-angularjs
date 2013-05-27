@@ -55,6 +55,7 @@ app.controller("HomeController", function($scope, AuthenticationService, ImageSe
   $scope.$on("showsMessageWhenHovered:setMessage", function(event, message) {
     $scope.message = message;
     $scope.$apply();
+    event.stopPropagation();
   });
 
   $scope.logout = function() {
