@@ -49,8 +49,13 @@ app.controller("LoginController", function($scope, $location, AuthenticationServ
 
 app.controller("HomeController", function($scope, AuthenticationService, ImageService) {
   $scope.title = "Awesome Home";
-  $scope.hoverMessage = "Mouse Over these images to see a directive at work!";
+  $scope.message = "Mouse Over these images to see a directive at work!";
   $scope.images = ImageService.images;
+
+  $scope.$on("showsMessageWhenHovered:setMessage", function(event, message) {
+    $scope.message = message;
+    $scope.$apply();
+  });
 
   $scope.logout = function() {
     AuthenticationService.logout();
@@ -68,15 +73,12 @@ app.directive("showsMessageWhenHovered", function() {
   return {
     restrict: "A",
     link: function(scope, element, attributes) {
-      var originalMessage = scope.hoverMessage;
+      var originalMessage = scope.message;
       element.bind("mouseenter", function() {
-        debugger;
-        scope.hoverMessage = attributes.message;
-        scope.$apply();
+        scope.$emit("showsMessageWhenHovered:setMessage", attributes.message);
       });
       element.bind("mouseleave", function() {
-        scope.hoverMessage = originalMessage;
-        scope.$apply();
+        scope.$emit("showsMessageWhenHovered:setMessage", originalMessage);
       });
     }
   };
