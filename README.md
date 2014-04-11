@@ -14,3 +14,7 @@ Walk through building a sample application with AngularJS to learn some of the b
 * $scope, inheritance, and its relationship with the DOM
 * contrasting some of angular w/ jQuery/Backbone
 
+# Changelog
+
+- April 11, 2014: upgrade: angular to 1.2.16, add: angular-route
+
