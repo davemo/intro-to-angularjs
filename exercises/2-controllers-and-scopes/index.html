@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>An Introduction to Angular.JS</title>
+  <link rel="stylesheet" href="../../vendor/css/normalize.css">
+  <link rel="stylesheet" href="../../vendor/css/foundation.min.css">
+  <link rel="stylesheet" href="../../app/css/style.css">
+  <script src="../../vendor/js/underscore.js"></script>
+  <script src="../../vendor/js/angular.js"></script>
+  <script src="../../vendor/js/angular-route.js"></script>
+  <script src="../assert.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="large-12">
+      <h1>Controllers &amp; Scopes</h1>
+      <ol>
+        <li>Within your `app` module, create a controller called <strong>FirstController</strong></li>
+        <li>Assign your controller to div#put-a-controller-on-me in this page</li>
+        <li>Add a key 'dynamic' with the value 'yes' to the <strong>$scope</strong> that is injected into your FirstController</li>
+        <li>Add a two way binding to render <em>$scope.dynamic</em> inside of em#dynamic</li>
+      </ol>
+
+      <div id="put-a-controller-on-me">
+        I should be a controller with a value on the $scope: <em id="dynamic"></em>
+      </div>
+      <br>
+      <p><strong>Note:</strong><em> Open your browsers developer tools console and make sure the tests are passing.</em></p>
+      <br>
+      <div>
+        <p><strong>Useful Resources</strong></p>
+        <ul>
+          <li><a href="https://docs.angularjs.org/api/ng/directive/ngController" target="_new">ngController</a></li>
+          <li><a href="http://toddmotto.com/digging-into-angulars-controller-as-syntax/">ngController: controller as</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="tests.js"></script>
+</body>
+</html>

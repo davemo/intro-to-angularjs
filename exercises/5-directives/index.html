@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>An Introduction to Angular.JS</title>
+  <link rel="stylesheet" href="../../vendor/css/normalize.css">
+  <link rel="stylesheet" href="../../vendor/css/foundation.min.css">
+  <link rel="stylesheet" href="../../app/css/style.css">
+  <script src="../../vendor/js/underscore.js"></script>
+  <script src="../../vendor/js/angular.js"></script>
+  <script src="../../vendor/js/angular-route.js"></script>
+  <script src="../assert.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="large-12">
+      <h1>Directives</h1>
+      <ol>
+        <li>Create a controller on the `app` module called `HoverController`, that has a message property assigned to the `$scope`. Let the message read: "Mouse Over these images to see a directive at work!"</li>
+        <li>Assign the controller to div#hover-interaction using `ng-controller`</li>
+        <li>On each house image element in the page, add a `shows-message-when-hovered` attribute and a `message` attribute. Make the `message` attribute value a string: "Im the nth house", where nth is `first`, `second`, etc..</li>
+        <li>Create an `attribute` directive within the `app` module called `showsMessageWhenHovered` and add a `link` function that uses `angular.element.bind` to toggle the `scope.message` on 2 events: `mouseenter` and `mouseleave`.</li>
+        <li>Create a binding for the message on the div.alert-box element using `ng-bind` to see the message changing when you mouseover the images on the page.</li>
+      </ol>
+
+      <div id="hover-interaction">
+        <div class="alert-box"></div>
+
+        <ul class="small-block-grid-2">
+          <li>
+            <img class="th" src="../../app/img/demo1.jpg">
+          </li>
+          <li>
+            <img class="th" src="../../app/img/demo2.jpg">
+          </li>
+        </ul>
+      </div>
+
+      <br>
+      <p><strong>Note:</strong><em> Open your browsers developer tools console and make sure the tests are passing.</em></p>
+      <br>
+      <div>
+        <p><strong>Useful Resources</strong></p>
+        <ul>
+          <li><a href="https://docs.angularjs.org/guide/concepts#directive" target="_new">angular directives</a></li>
+          <li><a href="https://docs.angularjs.org/guide/databinding" target="_new">angular data binding</a></li>
+          <li><a href="https://docs.angularjs.org/api/ng/directive/ngBind" target="_new">ngBind</a></li>
+          <li><a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$apply" target="_new">$scope.$apply</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="tests.js"></script>
+</body>
+</html>

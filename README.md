@@ -14,7 +14,18 @@ Walk through building a sample application with AngularJS to learn some of the b
 * $scope, inheritance, and its relationship with the DOM
 * contrasting some of angular w/ jQuery/Backbone
 
+# Getting Started
+
+* Install NodeJS: https://nodejs.org/
+* Google Chrome, Firefox, or IE
+* `git clone https://github.com/davemo/intro-to-angularjs.git`
+* `npm install`
+* `npm start`
+
+Then visit http://localhost:3000
+
 # Changelog
 
+- May 20, 2015: upgrade: angular and angular-route to 1.4.0-rc.2, add exercises for workshop
 - April 11, 2014: upgrade: angular to 1.2.16, add: angular-route
 

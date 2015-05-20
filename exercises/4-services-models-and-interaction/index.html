@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>An Introduction to Angular.JS</title>
+  <link rel="stylesheet" href="../../vendor/css/normalize.css">
+  <link rel="stylesheet" href="../../vendor/css/foundation.min.css">
+  <link rel="stylesheet" href="../../app/css/style.css">
+  <script src="../../vendor/js/underscore.js"></script>
+  <script src="../../vendor/js/angular.js"></script>
+  <script src="../../vendor/js/angular-route.js"></script>
+  <script src="../assert.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="large-12">
+      <h1>Services &amp; Interaction</h1>
+      <ol>
+        <li>Create routes for `/logged-out` and `/logged-in` using $routeProvider, they should each configure a templateUrl of the same name (logged-in.html, and logged-out.html are provided for you in this excercise folder); make the default route `/logged-out</li>
+        <li>Create controllers `LoginController` and `LogoutController` and assign them to their corresponding routes using the $routeProvider config objects `controller` property. Inject the provided `AuthenticationService` into both controllers.</li>
+        <li>Add `$scope.credentials` within LoginController, which is an object literal containing a `username` and `password` key with empty strings as values.</li>
+        <li>On LoginController, create $scope.login which is a function that calls `AuthenticationService.Login` and passes in `$scope.credentials`; bind this function using `ng-submit` within `logged-out.html`</li>
+        <li>On LogoutController, create $scope.logout which calls `AuthenticationService.Logout`; bind this function using `ng-click` within `logged-in.html`</li>
+        <li>Within `logged-out.html`, bind the form input elements for `username` and `password` using `ng-model` pointing to `credentials.username` and `credentials.password`</li>
+      </ol>
+
+      <div id="view" ng-view></div>
+
+      <br>
+      <p><strong>Note:</strong><em> Open your browsers developer tools console and make sure the tests are passing.</em></p>
+      <br>
+      <div>
+        <p><strong>Useful Resources</strong></p>
+        <ul>
+          <li><a href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider" target="_new">$routeProvider</a></li>
+          <li><a href="https://docs.angularjs.org/api/ng/directive/ngClick" target="_new">ngClick</a></li>
+          <li><a href="https://docs.angularjs.org/api/ng/directive/ngSubmit" target="_new">ngSubmit</a></li>
+          <li><a href="https://docs.angularjs.org/api/ng/directive/ngModel" target="_new">ngModel</a></li>
+          <li><a href="http://stackoverflow.com/questions/14324451/angular-service-vs-angular-factory/21900284#21900284" target="_new">angular services</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="tests.js"></script>
+</body>
+</html>

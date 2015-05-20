@@ -1,0 +1,13 @@
+{
+  "name": "intro-to-angularjs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "./node_modules/.bin/serve"
+  },
+  "author": "David mosher <dave@testdouble.com>",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^1.4.0"
+  }
+}

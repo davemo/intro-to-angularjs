@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>An Introduction to Angular.JS</title>
+  <link rel="stylesheet" href="../../vendor/css/normalize.css">
+  <link rel="stylesheet" href="../../vendor/css/foundation.min.css">
+  <link rel="stylesheet" href="../../app/css/style.css">
+  <script src="../../vendor/js/underscore.js"></script>
+  <script src="../../vendor/js/angular.js"></script>
+  <script src="../../vendor/js/angular-route.js"></script>
+  <script src="../assert.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="large-12">
+      <h1>Routing &amp; Repeaters</h1>
+      <ol>
+        <li>Add `ngRoute` as a dependency to your `app` module and inject $routeProvider during the `config` phase.</li>
+        <li>Add an `ng-view` directive to div#view</li>
+        <li>Configure `$routeProvider` with a route to <strong>/stooges</strong> that loads a template, <strong>stooges.html</strong> and assigns the controller <strong>FirstController</strong></li>
+        <li>Add an array of the 3 stooges (larry, curly, and moe) to the `$scope` for `FirstController` </li>
+        <li>Use `ng-repeat` on a table#stooges element in <strong>stooges.html</strong> to display the list of stooges</li>
+      </ol>
+
+      <div id="view"></div>
+
+      <br>
+      <p><strong>Note:</strong><em> Open your browsers developer tools console and make sure the tests are passing.</em></p>
+      <br>
+      <div>
+        <p><strong>Useful Resources</strong></p>
+        <ul>
+          <li><a href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider" target="_new">$routeProvider</a></li>
+          <li><a href="https://docs.angularjs.org/api/ngRoute" target="_new">ngRoute</a></li>
+          <li><a href="https://docs.angularjs.org/api/ng/directive/ngRepeat" target="_new">ngRepeat</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="tests.js"></script>
+</body>
+</html>
